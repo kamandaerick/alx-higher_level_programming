@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-import string
-print(string.ascii_uppercase, end="")
+for i in range(65, 91):
+    print(chr(i), end="")
