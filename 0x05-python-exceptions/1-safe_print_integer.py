@@ -5,5 +5,5 @@ def safe_print_integer(value):
         return True
     except ValueError:
         print("{} is not an integer".format(value))
-    else:
         return False
+
