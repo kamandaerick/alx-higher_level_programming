@@ -6,5 +6,8 @@ class Square:
     This is the definition of a class Square that has one instance called size
     """
     def __init__(self, size):
-        """This is an object/instance of class Square"""
+        """Constructor.
+        Args:
+            size: the length of one side of a square
+        """
         self.__size = size
