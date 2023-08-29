@@ -11,15 +11,10 @@ class Square:
             size(int): the length of the sides of the square
         Raises:
             TypeError: the value of size is not an integer
-            ValueError: the value of size is a negative
+            ValueError: the value of size is a negativie
         """
-        try:
-            if not isinstance(size, int):
-                raise TypeError("size must be an integer")
-            if size < 0:
-                raise ValueError("size must be >= 0")
-            self.__size = size
-        except TypeError as e:
-            print(e)
-        except ValueError as e:
-            print(e)
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
+        self.__size = size
