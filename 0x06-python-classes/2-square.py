@@ -9,6 +9,9 @@ class Square:
         Constructor.
         Args:
             size(int): the length of the sides of the square
+        Raises:
+            TypeError: the value of size is not an integer
+            ValueError: the value of size is a negative
         """
         try:
             if not isinstance(size, int):
