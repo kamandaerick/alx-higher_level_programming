@@ -73,16 +73,6 @@ class Rectangle:
         else:
             return 2 * (self.__width + self.__height)
 
-    @property
-    def print_symbol(self):
-        """Synbol getter"""
-        return Rectangle.print_symbol
-
-    @print_symbol.setter
-    def print_symbol(self, value):
-        """Symbol setter"""
-        Rectangle.print_symbol = value
-
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
             return ""
@@ -97,3 +87,8 @@ class Rectangle:
     def __del__(self):
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
+
+    @classmethod
+    def update_symbol(cls, symbol):
+        """Class method to update print_symbil"""
+        cls.print_symbol = symbol
