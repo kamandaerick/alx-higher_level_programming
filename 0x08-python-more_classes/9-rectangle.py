@@ -74,6 +74,7 @@ class Rectangle:
             return 2 * (self.__width + self.__height)
 
     def __str__(self):
+        """str method"""
         if self.__width == 0 or self.__height == 0:
             return ""
         rectangle_str = ""
@@ -85,6 +86,7 @@ class Rectangle:
         return f'Rectangle({self.__width}, {self.__height})'
 
     def __del__(self):
+        """delete method"""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
 
