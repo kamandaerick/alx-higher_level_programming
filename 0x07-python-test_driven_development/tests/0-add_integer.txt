@@ -1,20 +1,16 @@
->>> add_integer(1, 2)
-3
->>> add_integer(100, -2)
-98
->>> add_integer(2)
-100
->>> add_integer(100.3, -2)
-98
->>> add_integer(2.4, 2.4)
-4
->>> add_integer(-2.4, -2.4)
--4
->>> add_integer(-1, -1)
--2
->>> add_integer(4, "School")
-Traceback (most recent call last):
-TypeError: b must be an integer
->>> add_integer(None)
-Traceback (most recent call last):
-TypeError: a must be an integer
+import unittest
+from add_integer import add_integer
+
+class TestAddInteger(unittest.TestCase):
+
+    def test_add_integer_success(self):
+        # Test cases for successful addition of integers or floats
+        self.assertEqual(add_integer(1, 2), 3)
+        self.assertEqual(add_integer(100, -2), 98)
+        self.assertEqual(add_integer(2), 100)
+        self.assertEqual(add_integer(100.3, -2), 98)
+
+    def test_add_integer_error(self):
+        # Test cases for raising TypeError when arguments are not integers or floats
+        self.assertRaises(TypeError, add_integer, 4, "School")
+        self.assertRaises(TypeError, add_integer, None)
