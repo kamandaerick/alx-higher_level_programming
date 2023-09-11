@@ -1,4 +1,4 @@
-#!/usr/bin/ppython3
+#!/usr/bin/python3
 """ This module defines an object attribute lookup function"""
 
 
