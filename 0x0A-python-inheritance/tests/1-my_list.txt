@@ -1,0 +1,33 @@
+>>> MyList = __import__('1-my_list').MyList
+
+1. Largest Test
+>>> my_list = MyList([10000, 0, -1])
+>>> my_list.print_sorted()
+[-1, 0, 10000]
+
+2. List with Repeated Elements
+>>> my_list=MyList([2, 3, 9,4, 2, 3])
+>>> my_list.print_sorted()
+[2, 2, 3, 3, 4, 9]
+
+3. Empty List
+>>> my_list = MyList([])
+>>> my_list.print_sorted()
+[]
+
+4. Single Element
+>>> my_list = MyList([20])
+>>> my_list.print_sorted()
+[20]
+
+5. Negative Values
+>>> my_list=MyList([-2, -3, -9, -4, -2, -3])
+>>> my_list.print_sorted()
+[-9, -4, -3, -3, -2, -2]
+
+6. Non_Integer Values
+>>> my_list = MyList([1, "two", 3])
+>>> my_list.print_sorted()
+Traceback:
+    ...
+TypeError: '<' not supported between instances of 'str' and 'int'  
