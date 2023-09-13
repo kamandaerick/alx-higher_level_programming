@@ -13,7 +13,7 @@ def is_same_class(obj, a_class):
         boolean: returns True if the obect is an instance of a class
                 and False if it is not
     """
-    if isinstance(obj, a_class):
+    if type(obj) is a_class:
         return True
     else:
         return False
