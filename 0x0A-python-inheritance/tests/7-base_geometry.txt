@@ -1,0 +1,74 @@
+7-base_geometry.txt
+
+
+
+Importing class from the module:
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+
+Printing the area
+    >>> bg = BaseGeometry()
+    >>> bg.area()
+    Traceback (most recent call last):
+    	      ...
+    Exception: area() is not implemented
+
+
+Passing a non integer argument
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", "Erick")
+    Traceback (most recent call last):
+    	      ...
+    TypeError: name must be an integer
+
+
+Trying to pass a boolean value
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", False)
+    Traceback (most recent call last):
+    	      ...
+    TypeError: name must be an integer
+
+
+Passing a negative number
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", -40)
+    Traceback (most recent call last):
+    	      ...
+    ValueError: name must be greater than 0
+
+
+Trying to pass a zero value
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", 0)
+    Traceback (most recent call last):
+    	      ...
+    ValueError: name must be greater than 0
+
+
+Passing a positive value
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", 90)
+
+
+Passing only th first argument
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name")
+    Traceback (most recent call last):
+    	      ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Passing no arguments
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+    	      ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+
+Passing three arguments to integer_validator
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", 90, 65)
+    Traceback (most recent call last):
+    	      ...
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
