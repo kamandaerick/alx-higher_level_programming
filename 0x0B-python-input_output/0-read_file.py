@@ -12,5 +12,5 @@ def read_file(filename=""):
         with open(filename, "r", encoding="utf-8") as f:
             for line in f:
                 print(line, end="")
-    except Exception:
-        pass
+    except Exception as e:
+        print("An error occurred: {}".format(e))
