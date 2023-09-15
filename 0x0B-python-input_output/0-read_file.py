@@ -8,9 +8,6 @@ def read_file(filename=""):
     Args:
         filename (str): Name of the file to be read. Defaults to "".
     """
-    try:
-        with open(filename, "r", encoding="utf-8") as f:
-            for line in f:
-                print(line, end="")
-    except Exception as e:
-        print("An error occurred: {}".format(e))
+    with open(filename, "r", encoding="utf-8") as f:
+        for line in f:
+            print(line)
