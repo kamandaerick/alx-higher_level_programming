@@ -28,6 +28,16 @@ class Square(Rectangle):
         """
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
 
+    @property
+    def size(self):
+        """size getter"""
+        return self.width
+    @size.setter
+    def size(self, value):
+        """size setter"""
+        self.width = value
+        self.height = value
+
     def display(self):
         """Display the square"""
         for i in range(self.y):
