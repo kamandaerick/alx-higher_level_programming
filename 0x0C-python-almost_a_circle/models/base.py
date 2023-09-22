@@ -43,7 +43,23 @@ class Base:
         """
         if list_objs is None:
             json.loads(cls.json, "[]")
+        dict_list = [obj.to_dictionary() for obj in list_objs]
+        json_data = cls.to_json_string(dict_list)
+
+        with open(cls.__name__ + ".json", "w") as file:
+            file.write(json_data)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Return list of json strng representation of json_string
+
+        Args:
+            json_string (str): list of disctionaries
+
+        Returns:
+            list: list of json strings
+        """
+        if json_string is None or json_string == "":
+            return []
         else:
-            with open(cls.__name__ + ".json", "w") as file:
-                json_data = [obj.to_dictionary() for obj in list_objs]
-                file.write(cls.to_json_string(json_data))
+            return json.loads(json_string)
