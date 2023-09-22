@@ -75,3 +75,15 @@ class Base:
             return None
         new_obj.update(**dictionary)
         return new_obj
+
+    @classmethod
+    def load_from_file(cls):
+        """Return a list of intances"""
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, "r") as file:
+                json_data = file.read()
+                dict_list = cls.from_json_string(json_data)
+                return [cls.create(**obj_dict) for obj_dict in dict_list]
+        except FileNotFoundError:
+            return []
