@@ -2,7 +2,10 @@
 /**
  * This script prints the second largest number in an array
  */
-// Check if there are command line arguments
+for (let i = 0; i < process.argv.length; i++) {
+  process.argv[i] = Number(process.argv[i]);
+}
+
 if (process.argv.length <= 2) {
   console.log(0);
 } else if (process.argv.length === 3) {
