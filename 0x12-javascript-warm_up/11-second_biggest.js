@@ -2,7 +2,7 @@
 /**
  * This script prints the second largest number in an array
  */
-for (let i = 0; i < process.argv.length; i++) {
+for (let i = 2; i < process.argv.length; i++) {
   process.argv[i] = Number(process.argv[i]);
 }
 
