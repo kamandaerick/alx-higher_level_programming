@@ -1,12 +1,12 @@
 #!/usr/bin/node
+const Rectangle = require('./4-rectangle');
 /**
  * class Square extends Rectangle
  */
-const Rectangle = require('./4-rectangle');
 
 class Square extends Rectangle {
   /**
-   * Constructor
+   * Constructor for the class Square
    * @param {int} size the size of the square
    */
   constructor (size) {
