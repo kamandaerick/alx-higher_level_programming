@@ -2,8 +2,11 @@
 /**
  * This script prits the first argument passed to it
  */
-if (process.argv[3] === null) {
+const allArguments = process.argv;
+if (allArguments.length <= 2) {
   console.log('No argument');
 } else {
-  console.log(process.argv[3]);
+  for (let i = 2; i < allArguments.length; i++) {
+    console.log(process.argv[i]);
+  }
 }
