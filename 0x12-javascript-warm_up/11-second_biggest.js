@@ -19,4 +19,3 @@ if (len === 2 || len === 3) {
   });
   console.log(arr[arr.length - 2]);
 }
-
