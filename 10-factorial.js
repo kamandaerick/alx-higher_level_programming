@@ -20,4 +20,5 @@ function factorial(number) {
   }
 }
 
+
 console.log(factorial(number));
