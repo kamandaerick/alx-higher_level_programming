@@ -16,7 +16,7 @@ class Rectangle {
   /**
    * This method prints a rectanggle
    */
-  
+
   print () {
     for (let i = 1; i <= this.height; i++) {
       let row = '';
