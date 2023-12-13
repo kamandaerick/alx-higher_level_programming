@@ -1,6 +1,8 @@
 #!/usr/bin/node
-/*
- * This script prints a list in reverse
+/**
+ * Return a list in reverse
+ * @param {list} list  a list of data
+ * @returns a reversed list
  */
 exports.esrever = function (list) {
   return list.reverse();
