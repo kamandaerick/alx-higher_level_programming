@@ -22,9 +22,9 @@ def select_states(username, password, db_name):
         )
         cursor = db.cursor()
         query = (
-                "SELECT *"
-                "FROM states"
-                "WHERE name LIKE 'N%'"
+                "SELECT * "
+                "FROM states "
+                "WHERE name LIKE 'N%' "
                 "ORDER BY states.id ASC"
                 )
         cursor.execute(query)
