@@ -25,9 +25,9 @@ def select_states(username, password, db_name):
         query = (
           "SELECT * "
           "FROM states "
-          "WHERE name='" +state_name + "' "
+          "WHERE name='{}' "
           "ORDER BY states.id ASC"
-          )
+          ).format(state_name)
         cursor.execute(query)
         states = cursor.fetchall()
 
