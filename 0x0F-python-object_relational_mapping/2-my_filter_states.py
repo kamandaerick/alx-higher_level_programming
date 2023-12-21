@@ -25,10 +25,10 @@ def select_states(username, password, db_name):
         query = (
           "SELECT * "
           "FROM states "
-          "WHERE name=%s "
+          "WHERE name='" +state_name + "' "
           "ORDER BY states.id ASC"
           )
-        cursor.execute(query, (state_name,))
+        cursor.execute(query)
         states = cursor.fetchall()
 
         for state in states:
