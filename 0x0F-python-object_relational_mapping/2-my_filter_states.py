@@ -4,7 +4,7 @@ import MySQLdb
 import sys
 
 
-def select_states(username, password, db_name):
+def select_states(username, password, db_name, state_name):
     """This function lists all states
 
     Args:
@@ -21,7 +21,6 @@ def select_states(username, password, db_name):
             db=db_name
         )
         cursor = db.cursor()
-        state_name = sys.argv[4]
         query = (
           "SELECT * "
           "FROM states "
@@ -44,5 +43,5 @@ def select_states(username, password, db_name):
 
 
 if __name__ == "__main__":
-    username, password, db_name = sys.argv[1:4]
-    select_states(username, password, db_name)
+    username, password, db_name, state_name = sys.argv[1:5]
+    select_states(username, password, db_name, state_name)
