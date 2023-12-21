@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""This script lists all states in a database that start with N """
+"""This script lists all states in a database"""
 import MySQLdb
 import sys
 
 
 def select_states(username, password, db_name):
-    """This function lists all states names starting with N
+    """This function lists all states
 
     Args:
         username (string): username
@@ -21,13 +21,14 @@ def select_states(username, password, db_name):
             db=db_name
         )
         cursor = db.cursor()
+        state_name = sys.argv[4]
         query = (
-                "SELECT * "
-                "FROM states "
-                "WHERE name LIKE 'N%' "
-                "ORDER BY states.id ASC"
-                )
-        cursor.execute(query)
+          "SELECT * "
+          "FROM states "
+          "WHERE name=%s "
+          "ORDER BY states.id ASC"
+          )
+        cursor.execute(query, (state_name,))
         states = cursor.fetchall()
 
         for state in states:
