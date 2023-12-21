@@ -1,35 +1,42 @@
 #!/usr/bin/python3
-
-"""
-This script prints the states in the states table
-in the following format (id, name)
-"""
+"""This script lists all states in a database"""
 import MySQLdb
 import sys
 
-username = sys.argv[1]
-password = sys.argv[2]
-db_name = sys.argv[3]
 
-db = MySQLdb.connect(
-        host='localhost',
-        port=3306,
-        user=username,
-        passwd=password,
-        db=db_name
+def select_states(username, password, db_name):
+    """This function lists all states
+
+    Args:
+        username (string): username
+        password (string): password
+        db_name (string): database name
+    """
+    try:
+        db = MySQLdb.connect(
+            host='localhost',
+            port=3306,
+            user=username,
+            passwd=password,
+            db=db_name
         )
-c = db.cursor()
+        cursor = db.cursor()
+        query = "SELECT * FROM states ORDER BY states.id ASC"
+        cursor.execute(query)
+        states = cursor.fetchall()
 
-querry = "SELECT * FROM states ORDER BY states.id"
+        for state in states:
+            state_id, state_name = state[0], state[1]
+            print(f"({state_id}, '{state_name}')")
 
-c.execute(querry)
+    except MySQLdb.Error as e:
+        print("Error:", e)
+    finally:
+        if 'db' in locals() and db.open:
+            cursor.close()
+            db.close()
 
-states = c.fetchall()
 
-for state in states:
-    state_id = state[0]
-    state_name = state[1]
-    print(f"({state_id}, '{state_name}')")
-
-c.close()
-db.close()
+if __name__ == "__main__":
+    username, password, db_name = sys.argv[1:4]
+    select_states(username, password, db_name)
