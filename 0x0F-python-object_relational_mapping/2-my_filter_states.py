@@ -23,11 +23,11 @@ def select_states(username, password, db_name):
         cursor = db.cursor()
         state_name = sys.argv[4]
         query = (
-          "SELECT * "
-          "FROM states "
-          "WHERE name='{}' "
-          "ORDER BY states.id ASC"
-          ).format(state_name)
+          f"SELECT * "
+          f"FROM states "
+          f"WHERE name='{state_name}' "
+          f"ORDER BY states.id ASC"
+          )
         cursor.execute(query)
         states = cursor.fetchall()
 
