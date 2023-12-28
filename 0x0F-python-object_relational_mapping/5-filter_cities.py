@@ -1,49 +1,44 @@
 #!/usr/bin/python3
-import MySQLdb
+"""
+This script lists all cities in a state provided
+as an argument
+"""
 import sys
-"""Take the name of a state as an argument and prints cities"""
-
-
-def filter_cities_by_state(username, password, db_name, state_name):
-    """Take the name of a state and list its cities
-
-    Args:
-        username (string): username
-        password (string): password
-        db_name (string): database name
-        state_name (string): name of a state
-    """
-    try:
-        db = MySQLdb.connect(
-            host='localhost',
-            port=3306,
-            user=username,
-            passwd=password,
-            db=db_name
-        )
-        cursor = db.cursor()
-        query = (
-                "SELECT GROUP_CONCAT(DISTINCT cities.name "
-                "ORDER BY cities.id ASC SEPARATOR ', ') "
-                "FROM cities "
-                "JOIN states ON cities.state_id = states.id "
-                "WHERE states.name = %s"
-            )
-
-        cursor.execute(query, (state_name,))
-        result = cursor.fetchone()[0]
-        if result:
-            print(result)
-        else:
-            print("")
-    except MySQLdb.Error as e:
-        print("Error:", e)
-    finally:
-        if 'db' in locals() and db.open:
-            cursor.close()
-            db.close()
+import MySQLdb
 
 
 if __name__ == "__main__":
-    username, password, db_name, state_name = sys.argv[1:5]
-    filter_cities_by_state(username, password, db_name, state_name)
+    if len(sys.argv) != 5:
+        sys.exit(1)
+
+    mysql_username = sys.argv[1]
+    mysql_password = sys.argv[2]
+    database_name = sys.argv[3]
+    state_name = sys.argv[4]
+
+    db = MySQLdb.connect(
+        user=mysql_username,
+        passwd=mysql_password,
+        host='localhost',
+        port=3306,
+        db=database_name
+    )
+
+    cursor = db.cursor()
+
+    query = """
+    SELECT cities.name
+    FROM cities
+    JOIN states ON cities.state_id = states.id
+    WHERE states.name = %s
+    ORDER BY cities.id ASC
+    """
+    cursor.execute(query, (state_name,))
+
+    cities = cursor.fetchall()
+
+    result = ", ".join(city[0] for city in cities)
+    print(result)
+
+    cursor.close()
+    db.close()
