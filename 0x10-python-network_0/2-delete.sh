@@ -3,4 +3,4 @@
 #display the body of the response
 url=$1
 
-curl -sX DLETE "$url"
+curl -sX DELETE "$url"
