@@ -6,8 +6,7 @@ url="$1"
 response=$(curl -sI "$url")
 
 #content length
-content_length=$(echo "$response" | grep -i '^Content-Length:' | tr -d '\r' | awk '{print $2}')
-
+response_body=$(curl -sL -w "%{size_download}" "$url")
 #display the content length in bytes
-echo ${content_length}
+echo ${response_body}
 
