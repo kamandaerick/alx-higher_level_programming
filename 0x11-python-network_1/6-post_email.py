@@ -1,4 +1,4 @@
-#!/usr/biin/python3
+#!/usr/bin/python3
 """Take in a URL and an email address, send a POST
     request with an email as a parameter and display
     the body
