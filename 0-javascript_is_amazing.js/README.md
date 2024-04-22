@@ -1,9 +1,5 @@
-Javascript Warm UP
-
-This project involve solving various coding challenges aimed at enhancing my understanding of Javascript Programming Language. 
-
 Learning Objectives
-At the end of this project, I am expected to be able to explain to anyone, without the help of Google:
+At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
 General
 Why JavaScript programming is amazing
