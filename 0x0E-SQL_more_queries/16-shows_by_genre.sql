@@ -1,6 +1,6 @@
--- list all shows and their genres
+-- List all shows and their corresponding genres
 SELECT tv_shows.title, tv_genres.name
 FROM tv_shows
-JOIN tv_show_genres ON tv_show_genres.show_id = tv_shows.id
-JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
+LEFT JOIN tv_show_genres ON tv_show_genres.show_id = tv_shows.id
+LEFT JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
 ORDER BY tv_shows.title ASC, tv_genres.name ASC;
