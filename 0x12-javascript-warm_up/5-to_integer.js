@@ -12,4 +12,3 @@ if (!isNaN(convertedNumber) && Number.isInteger(convertedNumber)) {
 } else {
   console.log('Not a number');
 }
-
