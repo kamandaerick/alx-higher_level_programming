@@ -1,14 +1,17 @@
 #!/usr/bin/node
 /**
- * Find the second largest number in a list of args
+ * This script prints the second largest number in an array
  */
-const a = process.argv;
-const args = [];
-for (let i = 2; i < a.length; i++) {
-  args.push(a[i]);
+for (let i = 2; i < process.argv.length; i++) {
+  process.argv[i] = Number(process.argv[i]);
 }
-if (args.length <= 1) {
+
+if (process.argv.length <= 2) {
+  console.log(0);
+} else if (process.argv.length === 3) {
   console.log(0);
 } else {
-  console.log(parseInt(args.sort().reverse()[1]));
+  const numbers = process.argv.slice(2).map(arg => parseInt(arg));
+  const sortedNumbers = numbers.sort((a, b) => b - a);
+  console.log(sortedNumbers[1]);
 }
