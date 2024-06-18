@@ -7,7 +7,7 @@ const args = [];
 for (let i = 2; i < a.length; i++) {
   args.push(a[i]);
 }
-if (args.length <= 1) {
+if (args.length <= 3) {
   console.log(0);
 } else {
   console.log(args.sort().reverse()[1]);
