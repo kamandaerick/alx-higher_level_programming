@@ -7,8 +7,8 @@ class Rectangle {
     w = parseInt(w);
     h = parseInt(h);
     if (!isNaN(w) && !isNaN(h) && w > 0 && h > 0) {
-	    this.width = w;
-	    this.height = h;
+      this.width = w;
+      this.height = h;
     }
   }
 }
