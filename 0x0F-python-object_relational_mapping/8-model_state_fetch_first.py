@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 #!/usr/in/python3
 """Print the first state in the database hbtn_0e_6_usa"""
 
@@ -14,6 +13,9 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    state = session.query(State).first()
-    print("{}: {}".format(state.id, state.name))
+    states = session.query(State).order_by(State.id).first()
+    if states:
+        print("{}: {}".format(states.id, states.name))
+    else:
+        print("No state found")
     session.close()
