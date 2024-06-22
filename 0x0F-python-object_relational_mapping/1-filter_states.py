@@ -18,6 +18,5 @@ if __name__ == "__main__":
         cur.close()
         db.close()
     else:
-        print("Usage: ./1-filter_states.py username password database_name")
         exit(1)
 
