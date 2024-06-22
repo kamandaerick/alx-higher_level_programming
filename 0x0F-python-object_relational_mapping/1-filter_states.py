@@ -19,3 +19,5 @@ if __name__ == "__main__":
         db.close()
     else:
         print("Usage: ./1-filter_states.py username password database_name")
+        exit(1)
+
